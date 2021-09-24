@@ -7,8 +7,10 @@ public class MyMain {
     //     4
     //     2
     public static void printEvensBackwards(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return;
+        for(int i = arr.length-1;i>=0;i--) {
+            if (arr[i] % 2 == 0)
+                System.out.println(arr[i]);
+        }
     }
 
     // Next, write a method that checks if an array is sorted in
@@ -18,8 +20,11 @@ public class MyMain {
     //     isIncreasing([1, 1, 3, 6, 7]) => false (because 1 is not > 1)
     //     isIncreasing([1, 2, 3, 2, 4, 5, 8]) => false
     public static boolean isIncreasing(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+        for (int i = 1;i<arr.length;i++){
+            if (arr[i]<=arr[i-1])
+                return false;
+        }
+        return true;
     }
 
     // (Maybe Optional):
@@ -30,8 +35,11 @@ public class MyMain {
     //     isBalanced([1, 2, 3, 4, 1, -1]) => true
     //     isBalanced([1, 2, 3, 7, 2, 1]) => false (because 7 - 3 > 2)
     public static boolean isBalanced(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+        for(int i = 0;i<arr.length/2;i++){
+            if (Math.abs(arr[i]-(arr[arr.length-i-1]))>2)
+                return false;
+        }
+        return true;
     }
 
     // Write a method that takes an array and checks if it contains
@@ -39,7 +47,12 @@ public class MyMain {
     // Ex: containsDuplicates([1, 2, 3, 2, 1]) => true
     //     containsDuplicates([7, 2, 3, 4, 1, 5]) => false
     public static boolean containsDuplicates(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        for(int i = 0;i<arr.length;i++){
+            for(int j = 0;j<arr.length;j++){
+                if(i!=j&&arr[i]==arr[j])
+                    return true;
+            }
+        }
         return false;
     }
 
@@ -48,7 +61,16 @@ public class MyMain {
     // to sort our code
     // This algorithm returns the sorted array
     public static int[] bubbleSort(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        int count = 0;
+        for(int i = 0;i<arr.length;i++){
+            for(int j = 1;j<arr.length;j++) {
+                if (arr [j - 1] > arr[j]) {
+                    count = arr[j];
+                    arr[j]=arr[j-1];
+                    arr[j-1]=count;
+                }
+            }
+        }
         return arr;
     }
 
